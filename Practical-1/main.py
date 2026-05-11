@@ -27,21 +27,26 @@ def performTask3():
 
 def performTask4():
     currency: str = input("Enter the currency code (e.g., USD, EUR, UAH): ")
+    amount: float = float(input("Enter the amount to convert: "))
 
     response = requests.get(f"https://api.exchangerate-api.com/v4/latest/{currency}")
     if response.status_code == 200:
         data = response.json()
         print(f"Exchange rates for {currency}:")
-    
-        for currency, rate in data["rates"].items():
+
+        rates = data["rates"].items()
+        for currency, rate in rates:
             print(f"{currency}: {rate}")
+        print(f"\nConverted amounts for {amount} {currency}:")
+        for currency, rate in rates:
+            print(f"{currency}: {float(rate) * amount}")
     else:
         print("Failed to fetch exchange rates.")
 
 def main():
-    performTask1()
-    performTask2()
-    performTask3()
+    # performTask1()
+    # performTask2()
+    # performTask3()
     performTask4()
 
 if __name__ == "__main__":

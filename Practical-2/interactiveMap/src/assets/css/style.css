@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  --font-title: "Rubik", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+body {
+  font-weight: var(--fw-regular);
+  font-family: var(--font-body);
+}
+
+.wrapper {
+  overflow: clip;
+  display: flex;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--fw-bold);
+  font-family: var(--font-title);
+}
+
+#map {
+  min-height: 480px;
+}
