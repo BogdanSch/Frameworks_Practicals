@@ -21,7 +21,8 @@ export default function ActivityForm() {
   const [formData, setFormData] = useState<Activity>({
     name: "",
     description: "",
-    createdAt: new Date(),
+    activityDate: "",
+    createdAt: "",
     type: "Event",
     position: [0, 0],
   });
@@ -96,6 +97,19 @@ export default function ActivityForm() {
               rows={4}
               required
             ></textarea>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="activityDate" className="form-label">
+              Activity Date*
+            </label>
+            <input
+              type="date"
+              className="form-control"
+              id="activityDate"
+              name="activityDate"
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="mb-3">
             <label htmlFor="activityType" className="form-label">

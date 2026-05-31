@@ -12,7 +12,8 @@ export type ActivityType =
 export type Activity = {
   name: string;
   description: string;
-  createdAt: Date;
+  activityDate: string;
+  createdAt: string;
   type: ActivityType;
   position: Coordinate;
 };

@@ -21,6 +21,7 @@ export default function ActivityMarkers() {
           <Popup>
             <h4>{activity.name}</h4>
             <p>{activity.description}</p>
+            <p>{activity.activityDate}</p>
             <p>{activity.type}</p>
           </Popup>
         </Marker>
