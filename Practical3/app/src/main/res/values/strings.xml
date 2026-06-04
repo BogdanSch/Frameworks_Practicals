@@ -2,4 +2,5 @@
     <string name="app_name">Practical3</string>
     <string name="nav_difference">Різниця чисел</string>
     <string name="nav_guess_game">Вгадай число</string>
+    <string name="nav_calculator">Калькулятор</string>
 </resources>

@@ -67,6 +67,18 @@ fun DrawerContent(currentActivity: Class<out Activity>, drawerState: DrawerState
         },
         modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
     )
+    Spacer(modifier = Modifier.height(8.dp))
+    NavigationDrawerItem(
+        label = { Text(stringResource(R.string.nav_calculator)) },
+        selected = currentActivity == CalculatorActivity::class.java,
+        onClick = {
+            scope.launch { drawerState.close() }
+            if (currentActivity != CalculatorActivity::class.java) {
+                context.startActivity(Intent(context, CalculatorActivity::class.java))
+            }
+        },
+        modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -80,10 +92,11 @@ fun TopBar(currentActivity: Class<out Activity>, drawerState: DrawerState, modif
         ),
         title = {
             Text(
-                if (currentActivity == MainActivity::class.java)
-                    stringResource(R.string.nav_difference)
-                else
-                    stringResource(R.string.nav_guess_game)
+                when (currentActivity) {
+                    MainActivity::class.java -> stringResource(R.string.nav_difference)
+                    GuessGameActivity::class.java -> stringResource(R.string.nav_guess_game)
+                    else -> stringResource(R.string.nav_calculator)
+                }
             )
         },
         navigationIcon = {
